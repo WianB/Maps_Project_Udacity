@@ -132,7 +132,6 @@ function hideListings() {
 function printListings(markers) {
     for (var i = 0; i < markers.length; i++) {
         $('.listings').prepend('<p>' + markers[i].title + '</p>');
-        console.log(markers[i].title);
     }
 }
 function clearListings(){
