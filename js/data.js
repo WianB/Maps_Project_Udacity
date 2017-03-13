@@ -172,45 +172,45 @@ var style = [
 // These are the real estate listings that will be shown to the user.
 // Normally we'd have these in a database instead.
 var locations = [{
-        title: 'Park Ave Penthouse',
+        title: 'The Bank Night Club',
         location: {
-            lat: 40.7713024,
-            lng: -73.9632393
+            lat: -33.875704,
+            lng: 151.224171
         }
     },
     {
-        title: 'Chelsea Loft',
+        title: 'Ivy Bar',
         location: {
-            lat: 40.7444883,
-            lng: -73.9949465
+            lat: -33.866615,
+            lng: 151.207464
         }
     },
     {
-        title: 'Union Square Open Floor Plan',
+        title: 'Trill Sydney',
         location: {
-            lat: 40.7347062,
-            lng: -73.9895759
+            lat: -33.879987,
+            lng: 151.216292
         }
     },
     {
-        title: 'East Village Hip Studio',
+        title: 'Hudson Ballroom',
         location: {
-            lat: 40.7281777,
-            lng: -73.984377
+            lat: -33.876215,
+            lng: 151.205009
         }
     },
     {
-        title: 'TriBeCa Artsy Bachelor Pad',
+        title: 'Pool Club',
         location: {
-            lat: 40.7195264,
-            lng: -74.0089934
+            lat: -33.865880,
+            lng: 151.207570
         }
     },
     {
-        title: 'Chinatown Homey Space',
+        title: 'The Argyle',
         location: {
-            lat: 40.7180628,
-            lng: -73.9961237
+            lat: -33.858481,
+            lng: 151.207777
         }
     }
 ];
