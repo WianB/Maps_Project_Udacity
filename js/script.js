@@ -85,6 +85,9 @@ function initMap() {
     }
     // Extend the boundaries of the map for each marker
     map.fitBounds(bounds);
+    document.getElementById('show-listings').addEventListener('click', showListings);
+    document.getElementById('hide-listings').addEventListener('click', hideListings);
+    hideListings();
 }
 
 // This function populates the infowindow when the marker is clicked. We'll only allow
@@ -101,4 +104,37 @@ function populateInfoWindow(marker, infowindow) {
             infowindow.setMarker = null;
         });
     }
+}
+
+// This function will loop through the markers array and display them all.
+function showListings() {
+    var bounds = new google.maps.LatLngBounds();
+    clearListings();
+    printListings(markers);
+    // Extend the boundaries of the map for each marker and display the marker
+    for (var i = 0; i < markers.length; i++) {
+        markers[i].setMap(map);
+        bounds.extend(markers[i].position);
+    }
+    map.fitBounds(bounds);
+}
+
+// This function will loop through the listings and hide them all.
+function hideListings() {
+    clearListings();
+    for (var i = 0; i < markers.length; i++) {
+        markers[i].setMap(null);
+    }
+}
+
+
+//Prints the listings on the side
+function printListings(markers) {
+    for (var i = 0; i < markers.length; i++) {
+        $('.listings').prepend('<p>' + markers[i].title + '</p>');
+        console.log(markers[i].title);
+    }
+}
+function clearListings(){
+  $('.listings').empty();
 }
