@@ -43,3 +43,15 @@ h1 {
     text-align: left;
     width: 340px;
 }
+.search-input{
+  width: 250px;
+}
+
+.burger_menu{
+  position: static;
+  left: 10px;
+  right: 10px;
+  width: 25px;
+  height: 25px;
+  display: none;
+}

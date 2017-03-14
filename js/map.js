@@ -3,8 +3,6 @@ var map;
 // Create a new blank array for all the listing markers.
 var markers = [];
 
-
-
 function initMap() {
     // Constructor creates a new map - only center and zoom are required.
     map = new google.maps.Map(document.getElementById('map'), {
@@ -19,32 +17,12 @@ function initMap() {
     var largeInfowindow = new google.maps.InfoWindow();
     var bounds = new google.maps.LatLngBounds();
 
-    // The following group uses the location array to create an array of markers on initialize.
-    for (var i = 0; i < locations.length; i++) {
-        // Get the position from the location array.
-        var position = locations[i].location;
-        var title = locations[i].title;
-        // Create a marker per location, and put into markers array.
-        var marker = new google.maps.Marker({
-            map: map,
-            position: position,
-            title: title,
-            animation: google.maps.Animation.DROP,
-            id: i
-        });
-        // Push the marker to our array of markers.
-        markers.push(marker);
-        // Create an onclick event to open an infowindow at each marker.
-        marker.addListener('click', function() {
-            populateInfoWindow(this, largeInfowindow);
-        });
-        bounds.extend(markers[i].position);
-    }
-    // Extend the boundaries of the map for each marker
-    map.fitBounds(bounds);
-    document.getElementById('show-listings').addEventListener('click', showListings);
-    document.getElementById('hide-listings').addEventListener('click', hideListings);
-    hideListings();
+    //Call function to create first markers
+    createFirstMarkers(bounds,largeInfowindow);
+    printListings(markers);
+
+    document.getElementById('show-listings').addEventListener('click', showMapListings);
+    document.getElementById('hide-listings').addEventListener('click', hideMapListings);
 }
 
 // This function populates the infowindow when the marker is clicked. We'll only allow
@@ -64,7 +42,7 @@ function populateInfoWindow(marker, infowindow) {
 }
 
 // This function will loop through the markers array and display them all.
-function showListings() {
+function showMapListings() {
     var bounds = new google.maps.LatLngBounds();
     clearListings();
     printListings(markers);
@@ -77,7 +55,7 @@ function showListings() {
 }
 
 // This function will loop through the listings and hide them all.
-function hideListings() {
+function hideMapListings() {
     clearListings();
     for (var i = 0; i < markers.length; i++) {
         markers[i].setMap(null);
@@ -108,4 +86,31 @@ function makeMarkerIcon(markerColor) {
         new google.maps.Point(10, 34),
         new google.maps.Size(21, 34));
     return markerImage;
+}
+
+function createFirstMarkers(bounds,largeInfowindow) {
+    // The following group uses the location array to create an array of markers on initialize.
+    for (var i = 0; i < locations.length; i++) {
+        // Get the position from the location array.
+        var position = locations[i].location;
+        var title = locations[i].title;
+        // Create a marker per location, and put into markers array.
+        var marker = new google.maps.Marker({
+            map: map,
+            position: position,
+            title: title,
+            animation: google.maps.Animation.DROP,
+            id: i
+        });
+        // Push the marker to our array of markers.
+        markers.push(marker);
+        // Create an onclick event to open an infowindow at each marker.
+        marker.addListener('click', function() {
+            populateInfoWindow(this, largeInfowindow);
+        });
+        bounds.extend(markers[i].position);
+    }
+    // Extend the boundaries of the map for each marker
+    map.fitBounds(bounds);
+
 }

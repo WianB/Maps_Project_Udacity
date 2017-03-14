@@ -169,8 +169,7 @@ var style = [
 ];
 
 
-// These are the real estate listings that will be shown to the user.
-// Normally we'd have these in a database instead.
+//Club database with relevant positions
 var locations = [{
         title: 'The Bank Night Club',
         location: {
