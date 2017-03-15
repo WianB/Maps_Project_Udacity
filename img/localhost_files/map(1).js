@@ -117,7 +117,7 @@ function createFirstMarkers(bounds,largeInfowindow) {
 }
 
 $('.burger_menu').click(function(){
-  if($('.options-box').css('left')=="0px"){
+  if($('.options-box').css('left')==0){
       $('.options-box').removeClass("show_options-box");
   }else{
     $('.options-box').addClass("show_options-box");

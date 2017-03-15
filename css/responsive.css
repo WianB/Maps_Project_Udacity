@@ -1,0 +1,28 @@
+@media screen and (max-width: 1050px) and (min-width: 851px) {
+    .options-box {
+        width: 250px;
+    }
+    #map {
+        left: 272px;
+    }
+}
+
+@media screen and (max-width: 850px) and (min-width: 600px) {
+    .burger_menu {
+        display: inline;
+        position: absolute;
+        z-index: 99;
+    }
+    #map {
+        left: 0px;
+    }
+    .options-box {
+        position: absolute;
+        width: 340px;
+        left: -360px;
+        z-index: 98;
+    }
+    .show_options-box{
+      left: 0px;
+    }
+}
