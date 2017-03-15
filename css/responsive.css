@@ -7,7 +7,7 @@
     }
 }
 
-@media screen and (max-width: 850px) and (min-width: 600px) {
+@media screen and (max-width: 850px) {
     .burger_menu {
         display: inline;
         position: absolute;
@@ -19,7 +19,7 @@
     .options-box {
         position: absolute;
         width: 340px;
-        left: -360px;
+        left: -365px;
         z-index: 98;
     }
     .show_options-box{

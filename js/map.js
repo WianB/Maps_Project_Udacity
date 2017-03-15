@@ -35,8 +35,10 @@ function populateInfoWindow(marker, infowindow) {
         infowindow.marker = marker;
         infowindow.setContent('<div>' + marker.title + '</div>');
         infowindow.open(map, marker);
+        marker.setIcon('img/orange_marker.png');
         // Make sure the marker property is cleared if the infowindow is closed.
         infowindow.addListener('closeclick', function() {
+            marker.setIcon('img/red_marker.png');
             infowindow.setMarker = null;
         });
     }
@@ -64,13 +66,13 @@ function hideMapListings() {
 }
 
 
-//Prints the listings on the side
+//Prints the listings on the side menu
 function printListings(markers) {
     for (var i = 0; i < markers.length; i++) {
         $('.listings').prepend('<p>' + markers[i].title + '</p>');
     }
 }
-
+//Clear listing on the side menu
 function clearListings() {
     $('.listings').empty();
 }
@@ -101,13 +103,15 @@ function createFirstMarkers(bounds,largeInfowindow) {
             position: position,
             title: title,
             animation: google.maps.Animation.DROP,
-            id: i
+            id: i,
+            icon: 'img/red_marker.png'
         });
         // Push the marker to our array of markers.
         markers.push(marker);
         // Create an onclick event to open an infowindow at each marker.
         marker.addListener('click', function() {
             populateInfoWindow(this, largeInfowindow);
+
         });
         bounds.extend(markers[i].position);
     }
