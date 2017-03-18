@@ -48,15 +48,19 @@ h1 {
     text-align: left;
     width: 340px;
 }
-.search-input{
+.search-input {
   width: 250px;
 }
 
-.burger_menu{
+.burger_menu {
   position: absolute;
   left: 20px;
   top: 20px;
   width: 25px;
   height: 25px;
   display: none;
+}
+
+select{
+  width: 250px;
 }

@@ -172,6 +172,7 @@ var style = [
 //Club database with relevant positions
 var locations = [{
         title: 'The Bank Night Club',
+        type: 'Club',
         location: {
             lat: -33.875704,
             lng: 151.224171
@@ -179,6 +180,7 @@ var locations = [{
     },
     {
         title: 'Ivy Bar',
+        type: 'Bar',
         location: {
             lat: -33.866615,
             lng: 151.207464
@@ -186,6 +188,7 @@ var locations = [{
     },
     {
         title: 'Trill Sydney',
+        type: 'Club',
         location: {
             lat: -33.879987,
             lng: 151.216292
@@ -193,6 +196,7 @@ var locations = [{
     },
     {
         title: 'Hudson Ballroom',
+        type: 'Misc',
         location: {
             lat: -33.876215,
             lng: 151.205009
@@ -200,6 +204,7 @@ var locations = [{
     },
     {
         title: 'Pool Club',
+        type: 'Cafe',
         location: {
             lat: -33.865880,
             lng: 151.207570
@@ -207,9 +212,45 @@ var locations = [{
     },
     {
         title: 'The Argyle',
+        type: 'Club',
         location: {
             lat: -33.858481,
             lng: 151.207777
+        }
+    },
+
+    {
+        title: 'Club Burwood',
+        type: 'Club',
+        location: {
+            lat: -33.875578,
+            lng: 151.103960
+        }
+    },
+
+    {
+        title: 'Chester Hill Bowling Club',
+        type: 'Misc',
+        location: {
+            lat: -33.877101,
+            lng: 150.996248
+        }
+    },
+
+    {
+        title: 'Iron Chef',
+        type: 'Restaurant',
+        location: {
+            lat: -33.889343,
+            lng: 150.941260
+        }
+    },
+    {
+        title: 'Lee Hing',
+        type: 'Restaurant',
+        location: {
+            lat: -33.972004,
+            lng: 151.077624
         }
     }
 ];
