@@ -3,6 +3,21 @@ var map;
 // Create a new blank array for all the listing markers.
 var markers = [];
 
+var markerModel = function (markers) {
+
+    this.markers = ko.observableArray(markers);
+    this.markerInfo = ko.observableArray([]);
+
+    for(var i=0; i<markers.length; i++){
+      this.markerInfo.push(markers[i].title);
+      console.log(markers[i].title);
+    }
+
+};
+
+
+
+
 function initMap() {
     // Constructor creates a new map - only center and zoom are required.
     map = new google.maps.Map(document.getElementById('map'), {
@@ -19,8 +34,8 @@ function initMap() {
     var bounds = new google.maps.LatLngBounds();
 
     //Call function to create first markers
-    createFirstMarkers(bounds,largeInfowindow);
-    printListings(markers);
+    createFirstMarkers(bounds, largeInfowindow);
+    //printListings(markers);
 
     document.getElementById('show-listings').addEventListener('click', showMapListings);
     document.getElementById('hide-listings').addEventListener('click', hideMapListings);
@@ -77,7 +92,7 @@ function clearListings() {
     $('.listings').empty();
 }
 
-function createFirstMarkers(bounds,largeInfowindow) {
+function createFirstMarkers(bounds, largeInfowindow) {
     // The following group uses the location array to create an array of markers on initialize.
     for (var i = 0; i < locations.length; i++) {
         // Get the position from the location array.
@@ -101,16 +116,29 @@ function createFirstMarkers(bounds,largeInfowindow) {
         });
         bounds.extend(markers[i].position);
     }
+
+    ko.applyBindings(new markerModel(markers));
     // Extend the boundaries of the map for each marker
     map.fitBounds(bounds);
 
 }
 
-$('.burger_menu').click(function(){
-  if($('.options-box').css('left')=="0px"){
-      $('.options-box').removeClass("show_options-box");
-  }else{
-    $('.options-box').addClass("show_options-box");
-  }
-  console.log("It has been clicked");
-})
+$('.burger_menu').click(function() {
+    if ($('.options-box').css('left') == "0px") {
+        $('.options-box').removeClass("show_options-box");
+    } else {
+        $('.options-box').addClass("show_options-box");
+    }
+    console.log("It has been clicked");
+});
+
+
+function updateMapMarkers(value) {
+    //Clear markers
+    //markers =[];
+    //Clear options-box
+    //  clearListings();
+    console.log("Test");
+
+
+}

@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width" />
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/responsive.css">
+    <script type='text/javascript' src='js/knockout-3.4.2.js'></script>
     <script src="js/jquery.js" charset "utf-8"></script>
     <script src="js/data.js" charset="utf-8"></script>
-    <script type='text/javascript' src='js/knockout-3.4.2.js'></script>
+
 
 </head>
 
@@ -17,25 +18,23 @@
         <div class="options-box">
             <h1>Some Sydney Destinations</h1>
             <div>
-                <input class="search-input" type="text" placeholder="Search Box">
-                <select>
+                <select class=dropDownList onchange="updateMapMarkers(this.value)">
+                  <option value="All">All</option>
                   <option value="Clubs">Clubs</option>
                   <option value="Restaurants">Restaurants</option>
                   <option value="Bar">Cafes</option>
-                  <option value="Misc">Misc</option>
                 </select>
-
                 <input id="show-listings" type="button" value="Show Listings">
                 <input id="hide-listings" type="button" value="Hide Listings">
             </div>
-            <div class="listings">
+            <div class="listings" data-bind="foreach:markerInfo">
+            <p data-bind ='text: $data'></p>
             </div>
-
             <div class="wiki-articles"></div>
         </div>
         <div id="map"></div>
-
     </div>
+
     <script src="js/map.js"></script>
     <script src="js/wiki.js"></script>
 

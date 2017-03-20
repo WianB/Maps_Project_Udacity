@@ -230,7 +230,7 @@ var locations = [{
 
     {
         title: 'Chester Hill Bowling Club',
-        type: 'Misc',
+        type: 'Club',
         location: {
             lat: -33.877101,
             lng: 150.996248
