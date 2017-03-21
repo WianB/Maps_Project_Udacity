@@ -196,7 +196,7 @@ var locations = [{
     },
     {
         title: 'Hudson Ballroom',
-        type: 'Misc',
+        type: 'Club',
         location: {
             lat: -33.876215,
             lng: 151.205009

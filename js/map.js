@@ -3,15 +3,56 @@ var map;
 // Create a new blank array for all the listing markers.
 var markers = [];
 
-var markerModel = function (markers) {
+var locationModel = function(locations) {
+    //Location Selector
+    this.typeSelector = ko.observable();
 
-    this.markers = ko.observableArray(markers);
-    this.markerInfo = ko.observableArray([]);
 
-    for(var i=0; i<markers.length; i++){
-      this.markerInfo.push(markers[i].title);
-      console.log(markers[i].title);
-    }
+    //Locations info (to print)
+    this.locationInfo = ko.observableArray([]);
+
+    //Monitors the selector
+    this.typeSelector.subscribe(function(newValue) {
+      console.log(newValue);
+        if (newValue === "All") {
+            this.locationInfo = [];
+            for (var i = 0; i < locations.length; i++) {
+                this.locationInfo.push(locations[i].title);
+
+            }
+        }
+        if (newValue === "Clubs") {
+          this.locationInfo = [];
+          for (var i = 0; i < locations.length; i++) {
+              if (locations[i].type == "Club") {
+                  this.locationInfo.push(locations[i].title);
+
+              }
+
+          }
+
+        }
+        if (newValue === "Restaurants") {
+          this.locationInfo = [];
+          for (var i = 0; i < locations.length; i++) {
+              if (locations[i].type == "Restaurant") {
+                  this.locationInfo.push(locations[i].title);
+              }
+          }
+        }
+        if (newValue === "Bar") {
+          this.locationInfo = [];
+          for (var i = 0; i < locations.length; i++) {
+              if (locations[i].type == "Bar") {
+                  this.locationInfo.push(locations[i].title);
+              }
+          }
+          console.log(this.locationInfo);
+
+        }
+    }, this);
+
+
 
 };
 
@@ -117,7 +158,8 @@ function createFirstMarkers(bounds, largeInfowindow) {
         bounds.extend(markers[i].position);
     }
 
-    ko.applyBindings(new markerModel(markers));
+    //console.log(locations.length);
+    ko.applyBindings(new locationModel(locations));
     // Extend the boundaries of the map for each marker
     map.fitBounds(bounds);
 

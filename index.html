@@ -18,17 +18,17 @@
         <div class="options-box">
             <h1>Some Sydney Destinations</h1>
             <div>
-                <select class=dropDownList onchange="updateMapMarkers(this.value)">
+                <select class=dropDownList data-bind = "value: typeSelector">
                   <option value="All">All</option>
                   <option value="Clubs">Clubs</option>
                   <option value="Restaurants">Restaurants</option>
-                  <option value="Bar">Cafes</option>
+                  <option value="Bar">Bar</option>
                 </select>
                 <input id="show-listings" type="button" value="Show Listings">
                 <input id="hide-listings" type="button" value="Hide Listings">
             </div>
-            <div class="listings" data-bind="foreach:markerInfo">
-            <p data-bind ='text: $data'></p>
+            <div class="listings" data-bind="foreach:locationInfo">
+                <p data-bind='text: $data'></p>
             </div>
             <div class="wiki-articles"></div>
         </div>
