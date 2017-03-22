@@ -20,7 +20,6 @@ var locationModel = function(locations) {
         var data = self.locationInfo.slice(0);
         self.locationInfo = [];
         self.locationInfo = data;
-        console.log("function has been called");
     };
 
     //Monitors the selector
@@ -32,21 +31,14 @@ var locationModel = function(locations) {
                 self.locationInfo.push(locations[i].title);
 
             }
-            console.log(self.locationInfo);
         }
         if (newValue === "Clubs") {
             self.locationInfo = [];
             for (var i = 0; i < locations.length; i++) {
                 if (locations[i].type == "Club") {
                     self.locationInfo.push(locations[i].title);
-                    console.log(locations[i].title);
-
                 }
-
             }
-            self.refresh();
-            console.log(self.locationInfo);
-
         }
         if (newValue === "Restaurants") {
             self.locationInfo = [];
@@ -55,7 +47,6 @@ var locationModel = function(locations) {
                     self.locationInfo.push(locations[i].title);
                 }
             }
-            console.log(self.locationInfo);
         }
         if (newValue === "Bar") {
             self.locationInfo = [];
@@ -64,13 +55,10 @@ var locationModel = function(locations) {
                     self.locationInfo.push(locations[i].title);
                 }
             }
-            console.log(self.locationInfo);
-
         }
+
+        console.log(self.locationInfo);
     }, this);
-
-
-
 };
 
 
@@ -93,7 +81,6 @@ function initMap() {
 
     //Call function to create first markers
     createFirstMarkers(bounds, largeInfowindow);
-    //printListings(markers);
 
     document.getElementById('show-listings').addEventListener('click', showMapListings);
     document.getElementById('hide-listings').addEventListener('click', hideMapListings);
