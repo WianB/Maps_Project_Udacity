@@ -187,11 +187,10 @@ $('.burger_menu').click(function() {
 
 
 function updateMapMarkers(value) {
-    //Clear markers
-    //markers =[];
-    //Clear options-box
-    //  clearListings();
-    console.log("Test");
+/*
 
 
+To be implemented
+
+*/
 }
