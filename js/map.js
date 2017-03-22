@@ -14,6 +14,8 @@ var locationModel = function(locations) {
     //Locations info (to print)
     self.locationInfo = ko.observableArray([]);
 
+    //Drop down info
+    self.dropDown = ko.observableArray(["All", "Clubs", "Restaurants", "Bar"]);
 
     //refresh function
     self.refresh = function() {
