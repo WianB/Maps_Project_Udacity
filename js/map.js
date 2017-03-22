@@ -4,50 +4,67 @@ var map;
 var markers = [];
 
 var locationModel = function(locations) {
+
+    var self = this;
+
     //Location Selector
-    this.typeSelector = ko.observable();
+    self.typeSelector = ko.observable();
 
 
     //Locations info (to print)
-    this.locationInfo = ko.observableArray([]);
+    self.locationInfo = ko.observableArray([]);
+
+
+    //refresh function
+    self.refresh = function() {
+        var data = self.locationInfo.slice(0);
+        self.locationInfo = [];
+        self.locationInfo = data;
+        console.log("function has been called");
+    };
 
     //Monitors the selector
-    this.typeSelector.subscribe(function(newValue) {
-      console.log(newValue);
+    self.typeSelector.subscribe(function(newValue) {
+        console.log(newValue);
         if (newValue === "All") {
-            this.locationInfo = [];
+            self.locationInfo = [];
             for (var i = 0; i < locations.length; i++) {
-                this.locationInfo.push(locations[i].title);
+                self.locationInfo.push(locations[i].title);
 
             }
+            console.log(self.locationInfo);
         }
         if (newValue === "Clubs") {
-          this.locationInfo = [];
-          for (var i = 0; i < locations.length; i++) {
-              if (locations[i].type == "Club") {
-                  this.locationInfo.push(locations[i].title);
+            self.locationInfo = [];
+            for (var i = 0; i < locations.length; i++) {
+                if (locations[i].type == "Club") {
+                    self.locationInfo.push(locations[i].title);
+                    console.log(locations[i].title);
 
-              }
+                }
 
-          }
+            }
+            self.refresh();
+            console.log(self.locationInfo);
 
         }
         if (newValue === "Restaurants") {
-          this.locationInfo = [];
-          for (var i = 0; i < locations.length; i++) {
-              if (locations[i].type == "Restaurant") {
-                  this.locationInfo.push(locations[i].title);
-              }
-          }
+            self.locationInfo = [];
+            for (var i = 0; i < locations.length; i++) {
+                if (locations[i].type == "Restaurant") {
+                    self.locationInfo.push(locations[i].title);
+                }
+            }
+            console.log(self.locationInfo);
         }
         if (newValue === "Bar") {
-          this.locationInfo = [];
-          for (var i = 0; i < locations.length; i++) {
-              if (locations[i].type == "Bar") {
-                  this.locationInfo.push(locations[i].title);
-              }
-          }
-          console.log(this.locationInfo);
+            self.locationInfo = [];
+            for (var i = 0; i < locations.length; i++) {
+                if (locations[i].type == "Bar") {
+                    self.locationInfo.push(locations[i].title);
+                }
+            }
+            console.log(self.locationInfo);
 
         }
     }, this);
@@ -103,8 +120,8 @@ function populateInfoWindow(marker, infowindow) {
 // This function will loop through the markers array and display them all.
 function showMapListings() {
     var bounds = new google.maps.LatLngBounds();
-    clearListings();
-    printListings(markers);
+    showListings();
+
     // Extend the boundaries of the map for each marker and display the marker
     for (var i = 0; i < markers.length; i++) {
         markers[i].setMap(map);
@@ -115,23 +132,30 @@ function showMapListings() {
 
 // This function will loop through the listings and hide them all.
 function hideMapListings() {
-    clearListings();
+    hideListings();
+
     for (var i = 0; i < markers.length; i++) {
         markers[i].setMap(null);
     }
 }
 
 
-//Prints the listings on the side menu
-function printListings(markers) {
-    for (var i = 0; i < markers.length; i++) {
-        $('.listings').append('<p>' + markers[i].title + '</p>');
+
+//Hides listings
+function hideListings() {
+    if (!$('.listings').hasClass('hide')) {
+        $('.listings').addClass('hide');
     }
 }
-//Clear listing on the side menu
-function clearListings() {
-    $('.listings').empty();
+
+
+//Clears listings
+function showListings() {
+    if ($('.listings').hasClass('hide')) {
+        $('.listings').removeClass('hide');
+    }
 }
+
 
 function createFirstMarkers(bounds, largeInfowindow) {
     // The following group uses the location array to create an array of markers on initialize.
