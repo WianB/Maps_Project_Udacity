@@ -14,6 +14,10 @@ var locationModel = function(locations) {
     //Locations info (to print)
     self.locationInfo = ko.observableArray([]);
 
+
+    //Location variable
+    self.locations =locations;
+
     //Drop down info
     self.dropDown = ko.observableArray(["All", "Clubs", "Restaurants", "Bar"]);
 
@@ -29,34 +33,45 @@ var locationModel = function(locations) {
         console.log(newValue);
         if (newValue === "All") {
             self.locationInfo = [];
+            self.locations =[];
             for (var i = 0; i < locations.length; i++) {
                 self.locationInfo.push(locations[i].title);
-
+                self.locations.push(locations[i]);
             }
+            updateMapMarkers(self.locations);
         }
         if (newValue === "Clubs") {
             self.locationInfo = [];
+            self.locations =[];
             for (var i = 0; i < locations.length; i++) {
                 if (locations[i].type == "Club") {
                     self.locationInfo.push(locations[i].title);
+                    self.locations.push(locations[i]);
                 }
             }
+            updateMapMarkers(self.locations);
         }
         if (newValue === "Restaurants") {
             self.locationInfo = [];
+            self.locations =[];
             for (var i = 0; i < locations.length; i++) {
                 if (locations[i].type == "Restaurant") {
                     self.locationInfo.push(locations[i].title);
+                    self.locations.push(locations[i]);
                 }
             }
+            updateMapMarkers(self.locations);
         }
         if (newValue === "Bar") {
             self.locationInfo = [];
+            self.locations =[];
             for (var i = 0; i < locations.length; i++) {
                 if (locations[i].type == "Bar") {
                     self.locationInfo.push(locations[i].title);
+                    self.locations.push(locations[i]);
                 }
             }
+            updateMapMarkers(self.locations);
         }
 
         console.log(self.locationInfo);
@@ -121,14 +136,18 @@ function showMapListings() {
 
 // This function will loop through the listings and hide them all.
 function hideMapListings() {
+    //Hide listings on the side bar
     hideListings();
-
-    for (var i = 0; i < markers.length; i++) {
-        markers[i].setMap(null);
-    }
+    hideMapMarkers();
 }
 
 
+function hideMapMarkers(){
+  //Hide map markers
+  for (var i = 0; i < markers.length; i++) {
+      markers[i].setMap(null);
+  }
+}
 
 //Hides listings
 function hideListings() {
@@ -188,7 +207,34 @@ $('.burger_menu').click(function() {
 });
 
 
-function updateMapMarkers(value) {
+function updateMapMarkers(locations) {
+  hideMapMarkers();
+  markers =[];
+  for (var i = 0; i < locations.length; i++) {
+      // Get the position from the location array.
+      var position = locations[i].location;
+      var title = locations[i].title;
+      // Create a marker per location, and put into markers array.
+      var marker = new google.maps.Marker({
+          map: map,
+          position: position,
+          title: title,
+          animation: google.maps.Animation.DROP,
+          id: i,
+          icon: 'img/red_marker.png'
+      });
+      // Push the marker to our array of markers.
+      markers.push(marker);
+      // Create an onclick event to open an infowindow at each marker.
+      marker.addListener('click', function() {
+          populateInfoWindow(this, largeInfowindow);
+
+      });
+      //bounds.extend(markers[i].position);
+  }
+
+
+
 /*
 
 
