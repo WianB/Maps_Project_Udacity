@@ -3,6 +3,11 @@ var map;
 // Create a new blank array for all the listing markers.
 var markers = [];
 
+
+//Global Google map variables
+var largeInfowindow = null;
+var bounds = null;
+
 var locationModel = function(locations) {
 
     var self = this;
@@ -93,8 +98,8 @@ function initMap() {
         mapTypeControl: false
     });
 
-    var largeInfowindow = new google.maps.InfoWindow();
-    var bounds = new google.maps.LatLngBounds();
+    largeInfowindow = new google.maps.InfoWindow();
+    bounds = new google.maps.LatLngBounds();
 
     //Call function to create first markers
     createFirstMarkers(bounds, largeInfowindow);
@@ -230,7 +235,7 @@ function updateMapMarkers(locations) {
           populateInfoWindow(this, largeInfowindow);
 
       });
-      //bounds.extend(markers[i].position);
+      bounds.extend(markers[i].position);
   }
 
 
