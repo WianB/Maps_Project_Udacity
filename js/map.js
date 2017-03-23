@@ -94,9 +94,6 @@ function initMap() {
     largeInfowindow = new google.maps.InfoWindow();
     bounds = new google.maps.LatLngBounds();
 
-    //Call function to create first markers
-    console.log("Bounds: " + bounds);
-
     document.getElementById('show-listings').addEventListener('click', showMapListings);
     document.getElementById('hide-listings').addEventListener('click', hideMapListings);
 
@@ -202,5 +199,4 @@ $('.burger_menu').click(function() {
     } else {
         $('.options-box').addClass("show_options-box");
     }
-    console.log("It has been clicked");
 });
