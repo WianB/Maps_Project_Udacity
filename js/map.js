@@ -34,7 +34,6 @@ var locationModel = function(locations) {
 
     //Monitors the selector
     self.typeSelector.subscribe(function(newValue) {
-        console.log(newValue);
         if (newValue === "All") {
             self.locationInfo = [];
             self.locations = [];
@@ -77,8 +76,6 @@ var locationModel = function(locations) {
             }
             updateMapMarkers(self.locations);
         }
-
-        console.log(self.locationInfo);
     }, this);
 };
 
@@ -98,10 +95,13 @@ function initMap() {
     bounds = new google.maps.LatLngBounds();
 
     //Call function to create first markers
-    createFirstMarkers(bounds, largeInfowindow);
+    console.log("Bounds: " + bounds);
 
     document.getElementById('show-listings').addEventListener('click', showMapListings);
     document.getElementById('hide-listings').addEventListener('click', hideMapListings);
+
+    //Creates markers based on the value of select and initializes the location model
+    ko.applyBindings(new locationModel(locations));
 }
 
 
@@ -117,41 +117,6 @@ function showMapListings() {
         bounds.extend(markers[i].position);
     }
     map.fitBounds(bounds);
-}
-
-
-
-
-function createFirstMarkers(bounds, largeInfowindow) {
-    // The following group uses the location array to create an array of markers on initialize.
-    for (var i = 0; i < locations.length; i++) {
-        // Get the position from the location array.
-        var position = locations[i].location;
-        var title = locations[i].title;
-        // Create a marker per location, and put into markers array.
-        var marker = new google.maps.Marker({
-            map: map,
-            position: position,
-            title: title,
-            animation: google.maps.Animation.DROP,
-            id: i,
-            icon: 'img/red_marker.png'
-        });
-        // Push the marker to our array of markers.
-        markers.push(marker);
-        // Create an onclick event to open an infowindow at each marker.
-        marker.addListener('click', function() {
-            populateInfoWindow(this, largeInfowindow);
-
-        });
-        bounds.extend(markers[i].position);
-    }
-
-    //console.log(locations.length);
-    ko.applyBindings(new locationModel(locations));
-    // Extend the boundaries of the map for each marker
-    map.fitBounds(bounds);
-
 }
 
 // This function populates the infowindow when the marker is clicked.
@@ -195,6 +160,8 @@ function updateMapMarkers(locations) {
         });
         bounds.extend(markers[i].position);
     }
+    // Extend the boundaries of the map for each marker
+    map.fitBounds(bounds);
 }
 
 // This function will loop through the listings and hide them all.
