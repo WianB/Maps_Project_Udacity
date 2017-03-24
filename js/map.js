@@ -35,7 +35,7 @@ var locationModel = function(locations) {
     //Monitors the selector
     self.typeSelector.subscribe(function(newValue) {
         if (newValue === "All") {
-            self.locationInfo = [];
+            self.locationInfo([]);
             self.locations = [];
             for (var i = 0; i < locations.length; i++) {
                 self.locationInfo.push(locations[i].title);
@@ -44,7 +44,7 @@ var locationModel = function(locations) {
             updateMapMarkers(self.locations);
         }
         if (newValue === "Clubs") {
-            self.locationInfo = [];
+            self.locationInfo([]);
             self.locations = [];
             for (var i = 0; i < locations.length; i++) {
                 if (locations[i].type == "Club") {
@@ -55,7 +55,7 @@ var locationModel = function(locations) {
             updateMapMarkers(self.locations);
         }
         if (newValue === "Restaurants") {
-            self.locationInfo = [];
+            self.locationInfo([]);
             self.locations = [];
             for (var i = 0; i < locations.length; i++) {
                 if (locations[i].type == "Restaurant") {
@@ -66,7 +66,7 @@ var locationModel = function(locations) {
             updateMapMarkers(self.locations);
         }
         if (newValue === "Bar") {
-            self.locationInfo = [];
+            self.locationInfo([]);
             self.locations = [];
             for (var i = 0; i < locations.length; i++) {
                 if (locations[i].type == "Bar") {
@@ -134,7 +134,6 @@ function populateInfoWindow(marker, infowindow) {
 
 function updateMapMarkers(locations) {
     hideMapMarkers();
-    markers = [];
     for (var i = 0; i < locations.length; i++) {
         // Get the position from the location array.
         var position = locations[i].location;
@@ -170,14 +169,6 @@ function hideMapListings() {
     hideMapMarkers();
 }
 
-
-function hideMapMarkers() {
-    //Hide map markers
-    for (var i = 0; i < markers.length; i++) {
-        markers[i].setMap(null);
-    }
-}
-
 //Hides listings
 function hideListings() {
     if (!$('.listings').hasClass('hide')) {
@@ -185,6 +176,13 @@ function hideListings() {
     }
 }
 
+function hideMapMarkers() {
+    //Hide map markers
+    for (var i = 0; i < markers.length; i++) {
+        markers[i].setMap(null);
+    }
+    markers =[];
+}
 
 //Clears listings
 function showListings() {
