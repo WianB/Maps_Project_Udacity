@@ -25,15 +25,12 @@ var locationModel = function(locations) {
     //Drop down info
     self.dropDown = ko.observableArray(["All", "Clubs", "Restaurants", "Bar"]);
 
-    addInfoWindow = function(name){
-      for(var i =0; i < markers.length; i++){
-        if(name == markers[i].title && largeInfowindow!=null){
-          populateInfoWindow(markers[i], largeInfowindow);
+    self.addInfoWindow = function(name) {
+        for (var i = 0; i < markers.length; i++) {
+            if (name == markers[i].title && largeInfowindow != null) {
+                populateInfoWindow(markers[i], largeInfowindow);
+            }
         }
-
-      }
-
-      console.log('It has been clicked: ' + name);
     }
 
     //Monitors the selector
@@ -185,7 +182,7 @@ function hideMapMarkers() {
     for (var i = 0; i < markers.length; i++) {
         markers[i].setMap(null);
     }
-    markers =[];
+    markers = [];
 }
 
 //Clears listings

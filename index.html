@@ -9,6 +9,7 @@
     <script src="js/jquery.js" charset "utf-8"></script>
     <script src="js/data.js" charset="utf-8"></script>
 </head>
+
 <body>
     <div class="container">
         <img class="burger_menu" src="img/burger_menu.png" alt="">
@@ -20,18 +21,15 @@
                 <input id="hide-listings" type="button" value="Hide Listings">
             </div>
             <div class="listings" data-bind="foreach: locationInfo">
-                <p data-bind='text: $data, click: addInfoWindow($data)'></p>
+                <p data-bind='text: $data, click: $parent.addInfoWindow.bind($parent,$data)'></p>
             </div>
             <div class="wiki-articles"></div>
         </div>
         <div id="map"></div>
     </div>
-
     <script src="js/map.js"></script>
     <script src="js/wiki.js"></script>
     <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDyjRB2_Z7x6jPCqd7NF1roXJmAHwbl5ms&v=3&callback=initMap"></script>
-
-
 </body>
 
 </html>
