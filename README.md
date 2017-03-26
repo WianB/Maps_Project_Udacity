@@ -1,4 +1,4 @@
-# Maps_Project_Udacity
+# Maps Project Udacity
 
 ## An implementation of Knockout, Maps and Wikipedia
 
