@@ -25,12 +25,16 @@ var locationModel = function(locations) {
     //Drop down info
     self.dropDown = ko.observableArray(["All", "Clubs", "Restaurants", "Bar"]);
 
-    //refresh function
-    self.refresh = function() {
-        var data = self.locationInfo.slice(0);
-        self.locationInfo = [];
-        self.locationInfo = data;
-    };
+    addInfoWindow = function(name){
+      for(var i =0; i < markers.length; i++){
+        if(name == markers[i].title && largeInfowindow!=null){
+          populateInfoWindow(markers[i], largeInfowindow);
+        }
+
+      }
+
+      console.log('It has been clicked: ' + name);
+    }
 
     //Monitors the selector
     self.typeSelector.subscribe(function(newValue) {
@@ -105,7 +109,6 @@ function initMap() {
 
 // This function will loop through the markers array and display them all.
 function showMapListings() {
-    var bounds = new google.maps.LatLngBounds();
     showListings();
 
     // Extend the boundaries of the map for each marker and display the marker
@@ -154,6 +157,7 @@ function updateMapMarkers(locations) {
             populateInfoWindow(this, largeInfowindow);
 
         });
+        //Extend bounds of the map to fit in all the markers
         bounds.extend(markers[i].position);
     }
     // Extend the boundaries of the map for each marker

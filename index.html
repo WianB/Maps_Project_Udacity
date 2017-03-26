@@ -20,7 +20,7 @@
                 <input id="hide-listings" type="button" value="Hide Listings">
             </div>
             <div class="listings" data-bind="foreach: locationInfo">
-                <p data-bind='text: $data'></p>
+                <p data-bind='text: $data, click: addInfoWindow($data)'></p>
             </div>
             <div class="wiki-articles"></div>
         </div>

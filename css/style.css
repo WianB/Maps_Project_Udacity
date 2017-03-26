@@ -9,6 +9,9 @@ html, body {
 input{
   color: orange;
 }
+a{
+  color: #D45F07;
+}
 
 .container {
     height: 100%;
