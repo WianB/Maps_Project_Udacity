@@ -27,11 +27,11 @@ var locationModel = function(locations) {
 
     self.addInfoWindow = function(name) {
         for (var i = 0; i < markers.length; i++) {
-            if (name == markers[i].title && largeInfowindow != null) {
+            if (name == markers[i].title && largeInfowindow !== null) {
                 populateInfoWindow(markers[i], largeInfowindow);
             }
         }
-    }
+    };
 
     //Monitors the selector
     self.typeSelector.subscribe(function(newValue) {
