@@ -17,8 +17,6 @@
             <h1>Some Sydney Destinations</h1>
             <div>
                 <select class=dropDownList data-bind="value: typeSelector, options: dropDown"></select>
-                <input id="show-listings" type="button" value="Show Listings">
-                <input id="hide-listings" type="button" value="Hide Listings">
             </div>
             <div class="listings" data-bind="foreach: locationInfo">
                 <p data-bind='text: $data, click: $parent.addInfoWindow.bind($parent,$data)'></p>

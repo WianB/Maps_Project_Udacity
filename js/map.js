@@ -25,6 +25,11 @@ var locationModel = function(locations) {
     //Drop down info
     self.dropDown = ko.observableArray(["All", "Clubs", "Restaurants", "Bar"]);
 
+    self.showMapListings = function(){
+      showListings();
+      updateMapMarkers(self.locations);
+    }
+
     self.addInfoWindow = function(name) {
         for (var i = 0; i < markers.length; i++) {
             if (name == markers[i].title && largeInfowindow !== null) {
@@ -95,26 +100,13 @@ function initMap() {
     largeInfowindow = new google.maps.InfoWindow();
     bounds = new google.maps.LatLngBounds();
 
-    document.getElementById('show-listings').addEventListener('click', showMapListings);
-    document.getElementById('hide-listings').addEventListener('click', hideMapListings);
+    renderMapMarkers(locations);
 
     //Creates markers based on the value of select and initializes the location model
     ko.applyBindings(new locationModel(locations));
 }
 
 
-
-// This function will loop through the markers array and display them all.
-function showMapListings() {
-    showListings();
-
-    // Extend the boundaries of the map for each marker and display the marker
-    for (var i = 0; i < markers.length; i++) {
-        markers[i].setMap(map);
-        bounds.extend(markers[i].position);
-    }
-    map.fitBounds(bounds);
-}
 
 // This function populates the infowindow when the marker is clicked.
 function populateInfoWindow(marker, infowindow) {
@@ -132,7 +124,7 @@ function populateInfoWindow(marker, infowindow) {
     }
 }
 
-function updateMapMarkers(locations) {
+function renderMapMarkers(locations) {
     hideMapMarkers();
     for (var i = 0; i < locations.length; i++) {
         // Get the position from the location array.
@@ -161,6 +153,19 @@ function updateMapMarkers(locations) {
     map.fitBounds(bounds);
 }
 
+
+function updateMapMarkers(locations) {
+    hideMapMarkers();
+    for (var i = 0; i < locations.length; i++) {
+        for (var y = 0; y < markers.length; y++) {
+            if (locations[i].title == markers[y].title) {
+                markers[y].setVisible(true);
+
+            }
+        }
+    }
+}
+
 // This function will loop through the listings and hide them all.
 function hideMapListings() {
     //Hide listings on the side bar
@@ -180,9 +185,8 @@ function hideListings() {
 function hideMapMarkers() {
     //Hide map markers
     for (var i = 0; i < markers.length; i++) {
-        markers[i].setMap(null);
+        markers[i].setVisible(false);
     }
-    markers = [];
 }
 
 //Clears listings
