@@ -31,7 +31,8 @@ h1 {
 
 
 p{
-  border: 1px solid orange;
+  border-right : 1px solid orange;
+  border-left : 1px solid orange;
   padding-left: 5px;
   padding-right: 5px;
 }

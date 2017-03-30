@@ -180,6 +180,10 @@ function hideMapMarkers() {
     }
 }
 
+function cantLoadMap(){
+  $('#map').append("<h1>Can't Load the Map</h1>");
+}
+
 $('.burger_menu').click(function() {
     if ($('.options-box').css('left') == "0px") {
         $('.options-box').removeClass("show_options-box");
