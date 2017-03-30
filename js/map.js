@@ -166,34 +166,6 @@ function updateMapMarkers(locations) {
     }
 }
 
-// This function will loop through the listings and hide them all.
-function hideMapListings() {
-    //Hide listings on the side bar
-    hideListings();
-
-    //Hide Map markers
-    hideMapMarkers();
-}
-
-//Hides listings
-function hideListings() {
-    if (!$('.listings').hasClass('hide')) {
-        $('.listings').addClass('hide');
-    }
-}
-
-function hideMapMarkers() {
-    //Hide map markers
-    for (var i = 0; i < markers.length; i++) {
-        markers[i].setVisible(false);
-    }
-}
-
-//Clears listings
-function showListings() {
-    if ($('.listings').hasClass('hide')) {
-        $('.listings').removeClass('hide');
-    }
 }
 
 $('.burger_menu').click(function() {
