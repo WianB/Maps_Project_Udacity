@@ -166,6 +166,11 @@ function updateMapMarkers(locations) {
     }
 }
 
+function hideMapMarkers() {
+    //Hide map markers
+    for (var i = 0; i < markers.length; i++) {
+        markers[i].setVisible(false);
+    }
 }
 
 $('.burger_menu').click(function() {
