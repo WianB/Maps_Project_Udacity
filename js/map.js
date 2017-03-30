@@ -9,7 +9,7 @@ var largeInfowindow = null;
 var bounds = null;
 
 //Location view model that dynamically changes data and updates the view based on user input
-var locationModel = function(locations) {
+var LocationModel = function(locations) {
 
     var self = this;
 
@@ -103,7 +103,7 @@ function initMap() {
     renderMapMarkers(locations);
 
     //Creates markers based on the value of select and initializes the location model
-    ko.applyBindings(new locationModel(locations));
+    ko.applyBindings(new LocationModel(locations));
 }
 
 
