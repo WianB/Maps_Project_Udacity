@@ -110,6 +110,13 @@ function initMap() {
 
 // This function populates the infowindow when the marker is clicked.
 function populateInfoWindow(marker, infowindow) {
+
+    //Set all markers back to red_marker
+    for(var i = 0; i< markers.length; i++){
+      markers[i].setIcon('img/red_marker.png');
+    }
+
+
     // Check to make sure the infowindow is not already opened on this marker.
     if (infowindow.marker != marker) {
         infowindow.marker = marker;
