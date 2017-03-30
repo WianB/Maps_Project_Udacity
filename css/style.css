@@ -31,8 +31,8 @@ h1 {
 
 
 p{
-  border-right : 1px solid orange;
-  border-left : 1px solid orange;
+  border-right : 4px double orange;
+  border-left : 4px double orange;
   text-align: center;
 }
 #hide-listings, #show-listings {
