@@ -33,8 +33,7 @@ h1 {
 p{
   border-right : 1px solid orange;
   border-left : 1px solid orange;
-  padding-left: 5px;
-  padding-right: 5px;
+  text-align: center;
 }
 #hide-listings, #show-listings {
     width: 48%;
