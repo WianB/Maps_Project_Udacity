@@ -1,6 +1,6 @@
 //Wikipedia API Handling
 // load wikipedia data
-
+/*
 
 var $wikiElem = $('.wiki-articles');
 var wikiUrl = 'http://en.wikipedia.org/w/api.php?action=opensearch&search=' + 'Sydney' + '&format=json&callback=wikiCallback';
@@ -23,7 +23,7 @@ $.ajax({
     }
 });
 
-/*
+
 function populateMarker(marker){
   var yelpUrl = 'https://api.yelp.com/v3/businesses/search?term=delis&latitude=37.786882&longitude=-122.399972'
   console.log(yelpUrl);
