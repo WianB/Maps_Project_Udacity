@@ -31,8 +31,6 @@ $.ajax({
     async: true,
     crossDomain: true,
     url: "https://api.yelp.com/oauth2/token",
-    dataType: "jsonp",
-    jsonp: "callback",
     method: "POST",
     "headers": {
     "content-type": "application/x-www-form-urlencoded",
@@ -50,6 +48,7 @@ $.ajax({
         console.log("The function has been successfull")
 
     }
+
 
 })
 /*
