@@ -23,7 +23,43 @@ $.ajax({
     }
 });
 
+
+
+
+//Ajax request for Yelp API OATH2 as per Postman code
+$.ajax({
+    async: true,
+    crossDomain: true,
+    url: "https://api.yelp.com/oauth2/token",
+    dataType: "jsonp",
+    jsonp: "callback",
+    method: "POST",
+    "headers": {
+    "content-type": "application/x-www-form-urlencoded",
+    "cache-control": "no-cache",
+    "postman-token": "f9f5ba08-f675-dd4f-9986-415d9749a9e2"
+  },
+    "data": {
+        "client_id": "mjQBU8XAp8_2PJ7CKtzxQw",
+        "client_secret": "MRwFdJQMbU6GMrOyOHKGpM6ggl9JUMhYXFnWEuaCTyS0Nbw6QB598XwT4NcnLamp",
+        "grant_type": "client_credentials"
+    },
+
+    success: function(response) {
+        console.log(response);
+        console.log("The function has been successfull")
+
+    }
+
+})
 /*
+
+function populateMarker(marker) {
+
+}
+
+
+
 function populateMarker(marker){
   var yelpUrl = 'https://api.yelp.com/v3/businesses/search?term=delis&latitude=37.786882&longitude=-122.399972'
   console.log(yelpUrl);
@@ -43,66 +79,5 @@ function populateMarker(marker){
 
 
 }
-
-
-*/
-
-
-
-$.ajax({
-    async: true,
-    crossDomain: true,
-    url: "https://api.yelp.com/oauth2/token",
-    dataType: "jsonp",
-    jsonp: "callback",
-    method: "POST",
-    headers: {
-        "cache-control": "no-cache",
-        "postman-token": "e6b47e4c-c497-4f4d-daf1-b09d42ab311a",
-        "content-type": "application/x-www-form-urlencoded"
-    },
-    "data": {
-        "client_id": "mjQBU8XAp8_2PJ7CKtzxQw",
-        "client_secret": "MRwFdJQMbU6GMrOyOHKGpM6ggl9JUMhYXFnWEuaCTyS0Nbw6QB598XwT4NcnLamp",
-        "grant_type": "client_credentials"
-    },
-
-    success: function(response) {
-        console.log(response);
-    }
-
-})
-
-
-function populateMarker(marker) {
-
-}
-
-
-
-
-/*
-
-
-$.ajax(settings).done(function (response) {
-  console.log(response);
-});
-
-
-var settings = {
-  "async": true,
-  "crossDomain": true,
-  "url": "https://api.yelp.com/v3/businesses/north-india-restaurant-san-francisco",
-  "method": "GET",
-  "headers": {
-    "authorization": "Bearer",
-    "cache-control": "no-cache",
-    "postman-token": "b5c0fe60-a093-d282-4127-b2f64c9cecbb"
-  }
-}
-
-$.ajax(settings).done(function (response) {
-  console.log(response);
-});
 
 */
