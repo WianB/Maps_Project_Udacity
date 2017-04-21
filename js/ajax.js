@@ -26,7 +26,43 @@ $.ajax({
 
 
 
+//Ajax foursqaure
+
+
+
+var apiURL = 'https://api.foursquare.com/v2/venues/';
+var foursquareClientID = '4BFPNT252ZLDNQWFVSRME02CJXE2TX5DCOYO55L5IKSLXBXW'
+var foursquareSecret ='3RIGZFR5P1PGNWKTQPUZ1DS52RWSAMODM2K2D52GBV3X2JTV';
+var foursquareVersion = '20170112';
+var venueFoursquareID = "4b4aac62f964a520a98c26e3";
+
+var foursquareURL = apiURL + venueFoursquareID + '?client_id=' + foursquareClientID +'&client_secret=' + foursquareSecret +'&v=' + foursquareVersion;
+
+$.ajax({
+  url: foursquareURL,
+  success: function(data) {
+    console.log(data.response);
+    console.log(data.response.venue.name);
+    console.log(data.response.venue.rating);
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
 //Ajax request for Yelp API OATH2 as per Postman code
+
+
+/*
 $.ajax({
     async: true,
     crossDomain: true,
@@ -51,7 +87,7 @@ $.ajax({
 
 
 })
-/*
+
 
 function populateMarker(marker) {
 
