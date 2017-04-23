@@ -120,7 +120,12 @@ function populateInfoWindow(marker, infowindow) {
     // Check to make sure the infowindow is not already opened on this marker.
     if (infowindow.marker != marker) {
         infowindow.marker = marker;
-        infowindow.setContent('<div>' + marker.title + '</div><br><p> Rating: ' + populateMarker(marker)+'</p>');
+
+        populateMarker(marker,infowindow);
+
+        //infowindow.setContent('<div>' + marker.title + '</div><br><p> Rating: ' + populateMarker(marker)+'</p>');
+
+        //infowindow.setContent(marker.id);
         infowindow.open(map, marker);
         marker.setIcon('img/orange_marker.png');
         // Make sure the marker property is cleared if the infowindow is closed.

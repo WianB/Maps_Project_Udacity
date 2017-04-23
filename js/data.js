@@ -176,7 +176,8 @@ var locations = [{
         location: {
             lat: -33.875704,
             lng: 151.224171
-        }
+        },
+        foursquareId:'4c2f3ce83896e21ea085e390',
     },
     {
         title: 'Ivy Bar',
@@ -184,7 +185,8 @@ var locations = [{
         location: {
             lat: -33.866615,
             lng: 151.207464
-        }
+        },
+        foursquareId:'4b058760f964a520d78e22e3',
     },
     {
         title: 'Trill Sydney',
@@ -192,7 +194,8 @@ var locations = [{
         location: {
             lat: -33.879987,
             lng: 151.216292
-        }
+        },
+        foursquareId:'5479c55f498edcb60096f57a',
     },
     {
         title: 'Hudson Ballroom',
@@ -200,7 +203,8 @@ var locations = [{
         location: {
             lat: -33.876215,
             lng: 151.205009
-        }
+        },
+        foursquareId:'589d8e26f776b07707849c2f',
     },
     {
         title: 'Pool Club',
@@ -208,7 +212,8 @@ var locations = [{
         location: {
             lat: -33.865880,
             lng: 151.207570
-        }
+        },
+        foursquareId:'4b48eeb2f964a520065e26e3',
     },
     {
         title: 'The Argyle',
@@ -216,7 +221,8 @@ var locations = [{
         location: {
             lat: -33.858481,
             lng: 151.207777
-        }
+        },
+        foursquareId:'4b058760f964a520ae8e22e3',
     },
 
     {
@@ -225,7 +231,8 @@ var locations = [{
         location: {
             lat: -33.875578,
             lng: 151.103960
-        }
+        },
+        foursquareId:'4d5f85ac1939a35dc56e16ee',
     },
 
     {
@@ -234,7 +241,8 @@ var locations = [{
         location: {
             lat: -33.877101,
             lng: 150.996248
-        }
+        },
+        foursquareId:'4dcf866645ddbe15f8a507ac',
     },
 
     {
@@ -243,7 +251,8 @@ var locations = [{
         location: {
             lat: -33.889343,
             lng: 150.941260
-        }
+        },
+        foursquareId:'4b380bdaf964a520cd4a25e3',
     },
     {
         title: 'Lee Hing',
@@ -251,6 +260,7 @@ var locations = [{
         location: {
             lat: -33.972004,
             lng: 151.077624
-        }
+        },
+        foursquareId:'4e10507222713f7d7bc713f6',
     }
 ];
