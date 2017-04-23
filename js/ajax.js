@@ -24,6 +24,7 @@ $.ajax({
 });
 
 //Ajax foursqaure
+//Referenced some of the example code of the udacity blog.
 
 function populateMarker(marker,infowindow) {
     var apiURL = 'https://api.foursquare.com/v2/venues/';

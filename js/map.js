@@ -165,7 +165,7 @@ function renderMapMarkers(locations) {
     map.fitBounds(bounds);
 }
 
-
+//Function to update map markers
 function updateMapMarkers(locations) {
     hideMapMarkers();
     for (var i = 0; i < locations.length; i++) {
@@ -178,6 +178,8 @@ function updateMapMarkers(locations) {
     }
 }
 
+
+//Hide the map markers
 function hideMapMarkers() {
     //Hide map markers
     for (var i = 0; i < markers.length; i++) {
@@ -185,10 +187,14 @@ function hideMapMarkers() {
     }
 }
 
+
+//Can't load map function. Displays message on the website
 function cantLoadMap(){
   $('#map').append("<h1>Can't Load the Map</h1>");
 }
 
+
+//Handles the click to show and hide burger menu for mobile website
 $('.burger_menu').click(function() {
     if ($('.options-box').css('left') == "0px") {
         $('.options-box').removeClass("show_options-box");
