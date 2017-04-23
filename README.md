@@ -13,4 +13,4 @@ Simply clone the repository** and click on the index.html, use a local webserver
 
                         https://wianb.github.io/Maps_Project_Udacity/
 
-** Wikipedia API has some security issues with github thus use host the files locally to get the best experience
+** Wikipedia API has some security issues with github thus host the files locally to get the best experience
