@@ -44,6 +44,14 @@ function populateMarker(marker,infowindow) {
         success: function(data) {
             rating = data.response.venue.rating;
             checkins = data.response.venue.stats.checkinsCount;
+
+            if( rating == undefined || rating == null ){
+              rating = 'Data can not be retrieved';
+            }
+
+            if( checkins == undefined || checkins == null ){
+              checkins = 'Data can not be retrieved';
+            }
             infowindow.setContent('<div>' + marker.title + '</div><br><p> Rating: ' + rating +' </p>' + '<br><p> Checkins: ' + checkins +' </p>');
             clearTimeout(foursqaureTimeout);
         }

@@ -28,7 +28,7 @@ var LocationModel = function(locations) {
     self.showMapListings = function(){
       showListings();
       updateMapMarkers(self.locations);
-    }
+    };
 
     self.addInfoWindow = function(name) {
         for (var i = 0; i < markers.length; i++) {
