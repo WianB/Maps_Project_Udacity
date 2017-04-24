@@ -18,7 +18,7 @@ $.ajax({
             var articleStr = articleList[i];
             var url = 'http://en.wikipedia.org/wiki/' + articleStr;
             $wikiElem.append('<li><a href="' + url + '">' + articleStr + '</a></li>');
-        };
+        }
         clearTimeout(wikiRequestTimeout);
     }
 });
@@ -28,7 +28,7 @@ $.ajax({
 
 function populateMarker(marker,infowindow) {
     var apiURL = 'https://api.foursquare.com/v2/venues/';
-    var foursquareClientID = '4BFPNT252ZLDNQWFVSRME02CJXE2TX5DCOYO55L5IKSLXBXW'
+    var foursquareClientID = '4BFPNT252ZLDNQWFVSRME02CJXE2TX5DCOYO55L5IKSLXBXW';
     var foursquareSecret = '3RIGZFR5P1PGNWKTQPUZ1DS52RWSAMODM2K2D52GBV3X2JTV';
     var foursquareVersion = '20170112';
     var venueFoursquareID = locations[marker.id].foursquareId;
